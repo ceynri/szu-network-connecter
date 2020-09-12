@@ -1,17 +1,136 @@
 body,
 html {
-  margin: 0;
-  padding: 0;
-  color: #eee;
+  width: 400px;
+  height: 200px;
+  background: #dff9fb;
+
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', 'Mircosort YaHei', sans-serif;
-  font-size: 16px;
+  font-size: 14px;
+  color: #535c68;
 }
 
-#app {
-  width: 300px;
-  height: 200px;
-  background: #323639;
+#app,
+.stage-1,
+.stage-2,
+.stage-3 {
+  width: 100%;
+  height: 100%;
+}
+
+.none {
+  display: none !important;
+}
+
+.stage-2,
+.stage-3 {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.stage-1 .title {
+  position: absolute;
+  left: 45%;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 16px;
+  margin-bottom: 1em;
+}
+
+.stage-1 .next {
+  display: block;
+  height: 300px;
+  width: 300px;
+
+  position: absolute;
+  left: -150px;
+  top: 50%;
+  transform: translateY(-50%);
+
+  border: none;
+  border-radius: 50%;
+
+  background: #c7ecee;
+  color: #130f40;
+
+  cursor: pointer;
+
+  transition: all 1s cubic-bezier(0.8, -0.7, 0.4, 1.0);
+}
+
+.stage-1.animation .next {
+  width: 800px;
+  height: 800px;
+}
+
+.stage-1 .next .icon-next {
+  font-size: 60px;
+  color: #dff9fb;
+  position: absolute;
+  right: 60px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.stage-2 {
+  background: #c7ecee;
+}
+
+.stage-2 .form {
+  opacity: 0;
+  transition: opacity 0.5s;
+  display: flex;
+}
+
+.stage-2.animation .form {
+  opacity: 1;
+}
+
+.stage-2 .form .input {
+  font-size: 14px;
+  color: #535c68;
+
+  display: block;
+  height: 2em;
+  width: 160px;
+  
+  margin-bottom: 1em;
+  padding: 0.5em;
+  
+  background: #dff9fb66;
+  
+  border: none;
+  border-radius: 4px;
+}
+
+.stage-2 .form .input:last-child {
+  margin-bottom: 0;
+}
+
+.stage-2 .form .input::placeholder {
+  color: #95afc0;
+}
+
+.stage-2 .form .button {
+  width: 5em;
+  margin-left: 1em;
+  color: #dff9fb;
+  background: #30336b;
+  border: none;
+  border-radius: 4px;
+}
+
+.stage-2 .form .button .icon-baocun {
+  font-size: 1.5em;
+}
+
+.stage-2 .tips {
+  width: 300px;
+  text-align: center;
+  font-size: 12px;
+  color: #95afc0;
+  position: absolute;
+  bottom: 1.5em;
+  left: 50%;
+  transform: translateX(-50%);
 }

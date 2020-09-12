@@ -1,15 +1,52 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-	<meta charset="utf-8"/>
+	<meta charset="utf-8" />
 	<title>深大校园网自动登录插件</title>
+	<link rel="stylesheet" href="./reset.css" />
 	<link rel="stylesheet" href="./style.css" />
+	<link rel="stylesheet" href="http://at.alicdn.com/t/font_2063650_be77mvpl4c7.css">
 </head>
 
 <body>
 	<div id="app">
-		<div id="status"></div>
+		<div class="stage-1">
+			<h1 class="title">
+				首次使用需输入账号信息
+			</h1>
+			<button class="next">
+				<i class="iconfont icon-next"></i>
+			</button>
+		</div>
+		<div class="stage-2 none">
+			<div class="form">
+				<div class="inputs">
+					<input
+					type="text"
+					class="input card-id"
+					placeholder="卡号"
+					/>
+					<input
+					type="password"
+					class="input password"
+					placeholder="密码"
+					/>
+				</div>
+				<button id="saveButton" class="button">
+					<i class="iconfont icon-baocun"></i>
+				</button>
+			</div>
+			<div class="tips">
+				*信息只会保存在本地，不会上传至服务器哦
+			</div>
+		</div>
+		<div id="status" class="stage-3 none">
+			<!-- inject content by index.js -->
+		</div>
 	</div>
-	<script type="text/javascript" src="./index.js"></script>
+	<script src="./index.js"></script>
+	<script src="./login-post.js"></script>
 </body>
+
 </html>
