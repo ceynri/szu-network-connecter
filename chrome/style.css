@@ -1,20 +1,40 @@
+html {
+  --color1: #dff9fb;
+  --color2: #c7ecee;
+  --color3: #95afc0;
+  --color4: #535c68;
+  --highlight: #30336b;
+  --highlightShadow: #30336b88;
+  --warning: #eb4d4b;
+}
+
 body,
 html {
   width: 400px;
   height: 200px;
-  background: #dff9fb;
 
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', 'Mircosort YaHei', sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', 'Mircosort YaHei',
+    sans-serif;
   font-size: 14px;
-  color: #535c68;
+  background: var(--color2);
 }
 
-#app,
+#app {
+  width: 100%;
+  height: 100%;
+}
+
 .stage-1,
 .stage-2,
 .stage-3 {
+  position: absolute;
+  left: 0;
+  top: 0;
   width: 100%;
   height: 100%;
+  opacity: 0;
+  transition: opacity 0.5s;
 }
 
 .none {
@@ -28,16 +48,38 @@ html {
   align-items: center;
 }
 
-.stage-1 .title {
+.stage-1 {
+  background: var(--color1);
+}
+
+.stage-1 .content {
   position: absolute;
   left: 45%;
   top: 50%;
-  transform: translateY(-50%);
-  font-size: 16px;
-  margin-bottom: 1em;
+  transform: translate(0, -50%);
 }
 
-.stage-1 .next {
+.stage-1 .title {
+  font-size: 14px;
+  color: var(--highlight);
+  margin-bottom: 16px;
+}
+
+.stage-1 .fill-button {
+  height: 28px;
+  padding: 0 12px;
+
+  color: var(--color1);
+  background: var(--highlight);
+
+  border: none;
+  border-radius: 14px;
+
+  opacity: 1;
+  transition: box-shadow 0.6s;
+}
+
+.stage-1 .next-button {
   display: block;
   height: 300px;
   width: 300px;
@@ -50,22 +92,15 @@ html {
   border: none;
   border-radius: 50%;
 
-  background: #c7ecee;
+  background: var(--color2);
   color: #130f40;
 
-  cursor: pointer;
-
-  transition: all 1s cubic-bezier(0.8, -0.7, 0.4, 1.0);
+  transition: all 1s cubic-bezier(0.4, -0.7, 0.4, 1.0);
+  /* transition: all 1s; */
 }
-
-.stage-1.animation .next {
-  width: 800px;
-  height: 800px;
-}
-
-.stage-1 .next .icon-next {
+.stage-1 .next-button .icon-next {
   font-size: 60px;
-  color: #dff9fb;
+  color: var(--color1);
   position: absolute;
   right: 60px;
   top: 50%;
@@ -73,64 +108,155 @@ html {
 }
 
 .stage-2 {
-  background: #c7ecee;
+  background: var(--color2);
 }
 
 .stage-2 .form {
-  opacity: 0;
-  transition: opacity 0.5s;
   display: flex;
-}
-
-.stage-2.animation .form {
-  opacity: 1;
 }
 
 .stage-2 .form .input {
   font-size: 14px;
-  color: #535c68;
+  color: var(--highlight);
 
   display: block;
-  height: 2em;
+  height: 32px;
   width: 160px;
-  
-  margin-bottom: 1em;
-  padding: 0.5em;
-  
-  background: #dff9fb66;
-  
-  border: none;
-  border-radius: 4px;
-}
 
+  margin-bottom: 16px;
+  padding: 9px;
+
+  background: var(--color1);
+
+  border: 2px solid;
+  border-color: transparent;
+  border-radius: 4px;
+
+  opacity: 0.6;
+  transition: opacity 0.3s, border-color 0.3s;
+}
+.stage-2 .form .input.warning {
+  border-color: var(--warning);
+}
 .stage-2 .form .input:last-child {
   margin-bottom: 0;
 }
-
+.stage-2 .form .input:hover,
+.stage-2 .form .input:focus {
+  opacity: 1;
+}
 .stage-2 .form .input::placeholder {
-  color: #95afc0;
+  font-size: 12px;
+  color: var(--color3);
+  transition: color 0.3s;
+}
+.stage-2 .form .input:focus::placeholder {
+  color: transparent;
+}
+
+.stage-2 .form .button-wrapper {
+  width: 80px;
+  height: 80px;
+  margin-left: 16px;
+  position: relative;
 }
 
 .stage-2 .form .button {
-  width: 5em;
-  margin-left: 1em;
-  color: #dff9fb;
-  background: #30336b;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  color: var(--color1);
+  background: var(--highlight);
+
   border: none;
   border-radius: 4px;
+
+  opacity: 0;
+  transition: opacity 0.3s, box-shadow 0.6s;
 }
 
-.stage-2 .form .button .icon-baocun {
-  font-size: 1.5em;
+.button.clickable {
+  cursor: pointer;
+}
+.button.clickable:hover {
+  box-shadow: var(--highlightShadow) 0 0 20px -4px;
+}
+
+.stage-2 .form .button > * {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.stage-2 .form .save-button .icon-baocun,
+.stage-2 .form .save-button .icon-zhongshi {
+  font-size: 24px;
+}
+
+.checkmark {
+  stroke-width: 2px;
+  stroke-dasharray: 36px;
+  stroke-dashoffset: 36px;
+  animation: show 0.6s forwards;
+  animation-delay: 0.3s;
+}
+@keyframes show {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.stage-2 .loader {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 20px;
+  height: 10px;
+
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  opacity: 1;
+}
+
+.stage-2 .loader .point {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background-color: #fff;
+  /*  动画名 | 持续时间 | 时间曲线 | 循环次数 | 动画方向（原路返回） */
+  animation: loading 0.8s ease-in-out infinite alternate;
+}
+.stage-2 .loader .point2 {
+  animation-delay: 0.2s;
+}
+.stage-2 .loader .point3 {
+  animation-delay: 0.4s;
+}
+@keyframes loading {
+  to {
+    transform: translateY(-10px);
+  }
 }
 
 .stage-2 .tips {
   width: 300px;
+
   text-align: center;
   font-size: 12px;
-  color: #95afc0;
+  color: var(--color3);
+
   position: absolute;
-  bottom: 1.5em;
+  bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
+
+  opacity: 0;
+  transition: opacity 0.5s;
 }

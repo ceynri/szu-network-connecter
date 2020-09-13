@@ -1,13 +1,5 @@
 ﻿'use strict';
 
-/*
-** TODO：此处需要填充用户个人信息
-*/
-const accountData = {
-  id: '', // 填写你的卡号
-  password: '', // 填写你的密码
-}
-
 const urls = {
   wifi: 'https://drcom.szu.edu.cn/a70.htm', // SZU_WLAN
   nth: 'http://172.30.255.2/0.htm', // 校园网有线连接 || SZU_CTC&CMCC
@@ -16,12 +8,6 @@ const keys = {
   wifi: '123456',
   nth: '%B5%C7%A1%A1%C2%BC', // “登  录”的gbk转ascii编码
 }
-
-// 是否已连接
-let isConnected = false
-
-// 控制台的 DOM 元素
-const statusDom = document.querySelector('#status');
 
 // 对象转键值对字符串
 function serialize(obj) {
@@ -34,10 +20,9 @@ function serialize(obj) {
   return strArr.join('&');
 }
 
-function connectTo(type) {
+function connectTo(type, callback) {
   // 创建 XMLHttpRequest 对象
   const request = new XMLHttpRequest();
-  request.withCredentials = true;
   request.open('POST', urls[type], true);
 
   // 设置请求头
@@ -48,11 +33,14 @@ function connectTo(type) {
 
   // 请求体
   const postBody = serialize({
-    DDDDD: accountData.id,
-    upass: accountData.password,
+    DDDDD: localStorage.getItem('cid'),
+    upass: localStorage.getItem('password'),
     '0MKKey': keys[type],
     v6ip: '',
   });
+
+  // 是否已连接
+  let isConnected = false
 
   // 发送请求
   request.send(postBody);
@@ -61,20 +49,23 @@ function connectTo(type) {
       return;
     }
     if (request.status !== 200) {
-      statusDom.innerHTML += `返回码${request.status}`;
+      console.error(request.status);
+      callback(false, request.status);
     } else if (
       request.readyState === 4 &&
       request.status === 200
     ) {
-      statusDom.innerText = '自动登录成功(●ˇ∀ˇ●)';
-      isConnected = true;
+      const response = request.responseText
+      const msg = response.match(/msga='(.*)'/)
+      if (response.includes('信息返回窗') && msg) {
+        callback(false);
+      } else if (
+        (response.includes('信息返回窗') && !msg) ||
+        response.includes('登录成功窗')
+      ) {
+        callback(true);
+        isConnected = true;
+      }
     }
   };
-
-}
-
-if (false) {
-  statusDom.innerText = '正在连接中';
-  connectTo('wifi');
-  connectTo('nth');
 }

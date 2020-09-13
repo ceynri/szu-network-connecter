@@ -6,16 +6,21 @@
 	<title>深大校园网自动登录插件</title>
 	<link rel="stylesheet" href="./reset.css" />
 	<link rel="stylesheet" href="./style.css" />
-	<link rel="stylesheet" href="http://at.alicdn.com/t/font_2063650_be77mvpl4c7.css">
+	<link rel="stylesheet" href="http://at.alicdn.com/t/font_2063650_u3u1kssss6b.css">
 </head>
 
 <body>
 	<div id="app">
-		<div class="stage-1">
-			<h1 class="title">
-				首次使用需输入账号信息
-			</h1>
-			<button class="next">
+		<div class="stage-1 none">
+			<div class="content">
+				<h1 class="title">
+					首次使用需记录账号信息
+				</h1>
+				<button class="button fill-button clickable">
+					去填写
+				</button>
+			</div>
+			<button class="button next-button">
 				<i class="iconfont icon-next"></i>
 			</button>
 		</div>
@@ -23,30 +28,70 @@
 			<div class="form">
 				<div class="inputs">
 					<input
-					type="text"
-					class="input card-id"
-					placeholder="卡号"
+						type="text"
+						class="input card-id"
+						placeholder="卡号"
+						required
 					/>
 					<input
-					type="password"
-					class="input password"
-					placeholder="密码"
+						type="password"
+						class="input password"
+						placeholder="密码"
+						required
 					/>
 				</div>
-				<button id="saveButton" class="button">
-					<i class="iconfont icon-baocun"></i>
-				</button>
+				<div class="button-wrapper">
+					<!-- 保存 -->
+					<button class="button save-button clickable none">
+						<i class="iconfont icon-baocun"></i>
+					</button>
+
+					<!-- 保存成功 -->
+					<button class="button saved-button none">
+						<svg class="checkmark icon-saved" width="24px" height="24px" stroke="white" fill="none">
+							<polyline points="2,14 10,20 22,7"></polyline>
+						</svg>
+					</button>
+
+					<!-- 登录 -->
+					<button class="button login-button clickable none">
+						<div class="login">登录</div>
+					</button>
+
+					<!-- 登录中 -->
+					<button class="button loading-button none">
+						<div class="loader">
+							<div class="point point1"></div>
+							<div class="point point2"></div>
+							<div class="point point3"></div>
+						</div>
+					</button>
+
+					<!-- 登录成功 -->
+					<button class="button logined-button none">
+						<svg class="checkmark icon-logined" width="24px" height="24px" stroke="white" fill="none">
+							<polyline points="2,14 10,20 22,7"></polyline>
+						</svg>
+					</button>
+
+					<!-- 重试 -->
+					<button class="button retry-button clickable none">
+						<i class="iconfont icon-zhongshi"></i>
+					</button>
+
+					<!-- 错误 -->
+					<button class="button error-button none">
+						<i class="iconfont icon-cuowu"></i>
+					</button>
+				</div>
 			</div>
 			<div class="tips">
-				*信息只会保存在本地，不会上传至服务器哦
+				*账号信息仅保存于本地，以保证隐私安全
 			</div>
 		</div>
-		<div id="status" class="stage-3 none">
-			<!-- inject content by index.js -->
-		</div>
 	</div>
-	<script src="./index.js"></script>
 	<script src="./login-post.js"></script>
+	<script src="./index.js"></script>
 </body>
 
 </html>

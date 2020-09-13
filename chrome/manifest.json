@@ -1,8 +1,8 @@
 {
 	"manifest_version": 2,
-	"name": "深大校园网自动登录插件",
+	"name": "登录校园网络",
 	"version": "1.0.0",
-	"description": "深大校园网自动登录插件",
+	"description": "为解决深圳大学校园网有线连接与WIFI连接复杂的登录方式，给出一键快速登录解决方案的Chrome扩展插件",
 	"author": "ceynri",
 	"icons":
 	{
