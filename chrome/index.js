@@ -43,6 +43,8 @@ const hide = (
   return true;
 };
 
+const securityText = '*账号信息仅保存于本地，以保证隐私安全';
+
 // 一些用到的DOM元素
 
 const stage2 = document.querySelector('.stage-2');
@@ -83,6 +85,7 @@ if (!cardId && !password) {
     show(stage2, { delay: 500 });
     show(tips, { delay: 800 });
     show(saveButton);
+    tips.innerText = securityText;
   });
 } else {
   show(stage2)
@@ -127,6 +130,7 @@ saveButton.addEventListener('click', () => {
   localStorage.setItem('password', password);
   // 切换按钮状态
   hide(saveButton, { delay: 300 });
+  tips.innerText = '';
   show(savedButton);
   // 展示登录按钮
   hide(savedButton, { delay: 1300 });
@@ -137,6 +141,7 @@ saveButton.addEventListener('click', () => {
 [cidInput, pwInput].forEach(elem => {
   elem.addEventListener('keydown', () => {
     show(saveButton);
+    tips.innerText = securityText;
     buttons.forEach(button => {
       if (button !== saveButton) {
         hide(button, { delay: 300 });
@@ -145,19 +150,24 @@ saveButton.addEventListener('click', () => {
   });
 });
 
-let isConnected = false;
+let hadGotCallback = false;
+
 /**
  * 接受请求的返回信息，进行相关输出
  */
-const connectedCallback = (isSuccess) => {
+const connectedCallback = (isSuccess, msg) => {
+  // 不论是连接wifi还是网线，期望的连接模式应该会更先回调，而另外一种模式会超时后才触发回调，会慢一点
   if (isSuccess) {
-    isConnected = true;
     hide(loadingButton, { delay: 300 });
     show(loginedButton);
-  } else if (!isConnected) {
+    if (msg) tips.innerText = msg;
+    hadGotCallback = true;
+  } else if (msg) {
     show(errorButton);
     hide(errorButton, { delay: 2300 });
     show(retryButton, { delay: 2000 });
+    tips.innerText = msg;
+    hadGotCallback = true;
   }
 };
 
@@ -165,12 +175,17 @@ const connectedCallback = (isSuccess) => {
 [loginButton, retryButton].forEach(button => {
   // 发起登录请求
   button.addEventListener('click', () => {
-    isConnected = false;
     // 变为loading状态
     hide(button, { delay: 300 });
     show(loadingButton);
     // 发送登录请求
     connectTo('nth', connectedCallback);
     connectTo('wifi', connectedCallback);
+    setTimeout(() => {
+      if (!hadGotCallback) {
+        hide(loadingButton, { delay: 300 });
+        show(retryButton);
+      }
+    }, 5000);
   });
 })

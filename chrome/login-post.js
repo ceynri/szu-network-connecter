@@ -48,23 +48,32 @@ function connectTo(type, callback) {
     if (isConnected) {
       return;
     }
+    // TODO: 以下都是针对有线连接的逻辑，未适配wifi连接模式
     if (request.status !== 200) {
-      console.error(request.status);
-      callback(false, request.status);
+      callback(false);
     } else if (
       request.readyState === 4 &&
       request.status === 200
     ) {
       const response = request.responseText
-      const msg = response.match(/msga='(.*)'/)
-      if (response.includes('信息返回窗') && msg) {
-        callback(false);
-      } else if (
-        (response.includes('信息返回窗') && !msg) ||
-        response.includes('登录成功窗')
-      ) {
-        callback(true);
+      const msga = /msga='(.*)'/.exec(response);
+      const msg = msga && msga[1];
+
+      const isInfoResult = response.includes('信息返回窗')
+      const isLoginedResult = response.includes('登录成功窗')
+      
+      if (isInfoResult) {
+        if (msg) {
+          callback(false, msg);
+        } else {
+          callback(true, '登录成功😊');
+          isConnected = true;
+        }
+      } else if (isLoginedResult) {
+        callback(true, '你已经登录了😊');
         isConnected = true;
+      } else {
+        callback(false);
       }
     }
   };
