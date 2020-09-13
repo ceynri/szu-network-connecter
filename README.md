@@ -26,10 +26,12 @@
 
 执行以下步骤：
 
-- 下载本项目代码，保存到随便你想保存的位置（之后不要移动）
+- 下载本项目代码（[Releases 下载](https://github.com/ceynri/szu-network-connecter/releases)），保存到随便你想保存的位置（之后不要移动）
 - 打开 Chrome 浏览器，在地址栏输入 `chrome://extensions` 并访问
 - 打开右上角的`开发者模式`
-- 选择`加载已解压的扩展程序`，找到本项目下的`chrome`文件夹，选中
+- 选择`加载已解压的扩展程序`
+  - 如果是 clone 本项目：选中本项目下的`chrome`文件夹
+  - 如果是 Releases：解压，选中解压后的文件夹
 - 插件已被添加到 Chrome 浏览器中，在右上角插件栏区域中点击本插件即可运行
 
 ![使用步骤图例.jpg](https://i.loli.net/2020/09/14/gGxFHdu8oZjPDKa.jpg)
