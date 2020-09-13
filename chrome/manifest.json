@@ -1,17 +1,17 @@
 {
 	"manifest_version": 2,
-	"name": "登录校园网络",
-	"version": "1.0.0",
-	"description": "为解决深圳大学校园网有线连接与WIFI连接复杂的登录方式，给出一键快速登录解决方案的Chrome扩展插件",
+	"name": "登录深大校园网",
+	"version": "1.0.1",
+	"description": "针对深圳大学校园网有线连接与WIFI连接复杂的登录方式，给出一键快速登录解决方案的Chrome扩展插件",
 	"author": "ceynri",
 	"icons":
 	{
-		"48": "icon.png",
-		"128": "icon.png"
+		"48": "favicon.png",
+		"128": "favicon.png"
 	},
 	"browser_action": 
 	{
-		"default_icon": "icon.png",
+		"default_icon": "favicon.png",
 		"default_popup": "index.html"
 	},
 	"permissions": [
