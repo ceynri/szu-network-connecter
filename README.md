@@ -1,4 +1,7 @@
-# 一键登录深大校园网络 - Chrome 插件
+<div align="center">
+  <img src="https://i.loli.net/2020/09/19/W5ojBY1p8MmOG7X.png" alt=""/>
+  <h1>一键登录深大校园网络 - Chrome 插件</h1>
+</div>
 
 针对深圳大学校园网有线连接与 WIFI 连接复杂的登录方式，给出一键快速登录解决方案的 Chrome 扩展插件。
 
@@ -22,9 +25,9 @@
 
 ## 使用方式
 
-因为发布到 Chrome 扩展商店需要缴费 \$9.99/年，目前可以以另外一种方式体验该插件。
+目前已将插件提交至 Chrome 商店进行审核，完成后会发布 crx 文件以及 Chrome 商店插件地址。
 
-执行以下步骤：
+以下是借助开发者模式的方式体验该插件，执行步骤：
 
 - 下载本项目代码（[Releases 下载](https://github.com/ceynri/szu-network-connecter/releases)），保存到随便你想保存的位置（之后不要移动）
 - 打开 Chrome 浏览器，在地址栏输入 `chrome://extensions` 并访问
