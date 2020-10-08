@@ -25,6 +25,8 @@
 
 ## 使用方式
 
+### Chrome
+
 目前已将插件提交至 Chrome 商店进行审核，完成后会发布 crx 文件以及 Chrome 商店插件地址。
 
 以下是借助开发者模式的方式体验该插件，执行步骤：
@@ -38,6 +40,12 @@
 - 插件已被添加到 Chrome 浏览器中，在右上角插件栏区域中点击本插件即可运行
 
 ![使用步骤图例.jpg](https://i.loli.net/2020/09/14/gGxFHdu8oZjPDKa.jpg)
+
+### Firefox
+
+- 选择从 [Releases](https://github.com/ceynri/szu-network-connecter/releases) 选择 xpi 后缀的 Firefox 插件进行下载
+- 在 Firefox 浏览器 Ctrl+Shift+A 打开附加组件管理器
+- 点击齿轮⚙图标，选择“从文件安装附加组件...”，找到下载的 xpi 文件即可
 
 <br>
 
