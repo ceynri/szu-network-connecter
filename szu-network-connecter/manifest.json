@@ -1,18 +1,18 @@
 {
 	"manifest_version": 2,
 	"name": "深大校园网络登录",
-	"version": "1.1.3",
+	"version": "1.2.0",
 	"description": "针对深圳大学校园网有线连接与WIFI连接复杂的登录方式，给出一键快速登录解决方案的Chrome扩展插件",
 	"author": "ceynri",
 	"homepage_url": "https://github.com/ceynri/szu-network-connecter",
 	"icons":
 	{
-		"48": "favicon-48x48.png",
-		"128": "favicon-128x128.png"
+		"48": "assets/favicon-48x48.png",
+		"128": "assets/favicon-128x128.png"
 	},
 	"browser_action": 
 	{
-		"default_icon": "favicon.png",
+		"default_icon": "assets/favicon-128x128.png",
 		"default_popup": "index.html"
 	},
 	"permissions": [
