@@ -43,7 +43,7 @@
 
 ### Firefox
 
-- 选择从 [Releases](https://github.com/ceynri/szu-network-connecter/releases) 选择 xpi 后缀的 Firefox 插件进行下载
+- 从 [Releases](https://github.com/ceynri/szu-network-connecter/releases) 选择 xpi 后缀的 Firefox 插件进行下载
 - 在 Firefox 浏览器 Ctrl+Shift+A 打开附加组件管理器
 - 点击齿轮⚙图标，选择“从文件安装附加组件...”，找到下载的 xpi 文件即可
 
