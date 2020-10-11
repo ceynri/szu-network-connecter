@@ -72,8 +72,16 @@
 
 <br>
 
+## 许可协议
+
+[MIT](./LICENSE)
+
+<br>
+
 ## 其他
 
 > [后记](./record.md)
+>
+> [隐私权政策](./privacy-policy.md)
 
 <br>
