@@ -47,15 +47,27 @@
 
 <br>
 
-## 插件图例
+## 使用方式
 
-![login.jpg](https://i.loli.net/2020/09/14/vFq1Qu7Dn8UCVrb.jpg)
+1. 点击“去填写”，输入你的**卡号**（不是学号）和密码并点击保存按钮
 
-![input.jpg](https://i.loli.net/2020/09/14/CTSyHFpQDWXd72U.jpg)
+    ![launch screen.png](https://i.loli.net/2020/10/12/cg26MhuBJmSakCQ.png)
 
-![logined.jpg](https://i.loli.net/2020/09/14/KBgxod5qu3WlJfN.jpg)
+    ![input.jpg](https://i.loli.net/2020/09/14/CTSyHFpQDWXd72U.jpg)
 
-![error.jpg](https://i.loli.net/2020/09/14/RuWUZjokFNHPt2Y.jpg)
+2. 保存成功后，点击登录即可
+
+    ![login.jpg](https://i.loli.net/2020/09/14/vFq1Qu7Dn8UCVrb.jpg)
+
+    ![logined.jpg](https://i.loli.net/2020/09/14/KBgxod5qu3WlJfN.jpg)
+
+3. 如果出现报错或登录超时，错误信息由登录页面透传而来，请先检查个人信息、网络等设置是否有问题，可以提 issue 并提供相关行为与环境信息
+
+    ![error.jpg](https://i.loli.net/2020/09/14/RuWUZjokFNHPt2Y.jpg)
+
+> 注意：
+>
+> 目前非宿舍区的 WIFI 连接模式未进行适配，没有连接成功的提示，但登录是已经成功了的，可以在点击登录后看看是否已经连接上了网络
 
 <br>
 
@@ -63,7 +75,7 @@
 
 > 大概率是会鸽了，只有影响到我使用的问题我才会后续跟进修复或添加新特性，有意者欢迎直接 PR
 
-- 目前仅测试有线连接/宿舍区 WIFI 连接模式，对办公区的 WIFI 模式未进行状态判断与具体测试，无法保证是否可以连接，如有需要后续进行完善
+- 目前仅测试有线连接/宿舍区 WIFI 连接模式，对办公区的 WIFI 模式未进行状态判断与具体测试，如有需要后续进行完善
 - 增加自动登录选项，点击插件图标后自动登录，无需再点击登录按钮
 - input 输入框增加 <kbd>Enter</kbd> 键监听
 - 登录成功后延时几秒自动关闭弹窗

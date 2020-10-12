@@ -1,7 +1,7 @@
 {
 	"manifest_version": 2,
 	"name": "深大校园网络登录",
-	"version": "1.2.1",
+	"version": "1.2.2",
 	"description": "针对深圳大学校园网有线连接与WIFI连接复杂的登录方式，给出一键快速登录解决方案的Chrome扩展插件",
 	"author": "ceynri",
 	"homepage_url": "https://github.com/ceynri/szu-network-connecter",

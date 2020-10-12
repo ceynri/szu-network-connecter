@@ -36,7 +36,7 @@ function connectTo(type, callback) {
     DDDDD: localStorage.getItem('cid'),
     upass: localStorage.getItem('password'),
     '0MKKey': keys[type],
-    v6ip: '',
+    // v6ip: '',
   });
 
   // 是否已连接
