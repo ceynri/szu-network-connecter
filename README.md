@@ -3,7 +3,7 @@
   <h1>一键登录深大校园网络 - Chrome 插件</h1>
 </div>
 
-针对深圳大学校园网有线连接与 WIFI 连接复杂的登录方式，给出一键快速登录解决方案的 Chrome 扩展插件。
+针对深圳大学校园网有线连接与 WIFI 连接复杂的登录方式，给出一键快速登录解决方案的浏览器扩展插件。
 
 ## 基本特性
 
@@ -23,29 +23,27 @@
 
 <br>
 
-## 使用方式
+## 安装方式
 
-### Chrome
+### Chrome 浏览器
 
-目前已将插件提交至 Chrome 商店进行审核，完成后会发布 crx 文件以及 Chrome 商店插件地址。
+两种途径：
 
-以下是借助开发者模式的方式体验该插件，执行步骤：
+1. 直接通过 [Chrome 商店](https://chrome.google.com/webstore/detail/深大校园网络登录/mmeaolnimopgipjfbgobdlgkojojonop/)进行安装
+2. 通过 [Releases](https://github.com/ceynri/szu-network-connecter/releases) 下载对应的 **crx** 文件
+  - 然后打开 Chrome 浏览器的扩展程序界面
+  - 将 crx 文件拖入浏览器窗口即可
 
-- 下载本项目代码（[Releases 下载](https://github.com/ceynri/szu-network-connecter/releases)），保存到随便你想保存的位置（之后不要移动）
-- 打开 Chrome 浏览器，在地址栏输入 `chrome://extensions` 并访问
-- 打开右上角的`开发者模式`
-- 选择`加载已解压的扩展程序`
-  - 如果是 clone 本项目：选中本项目下的`szu-network-connecter`文件夹
-  - 如果是 Releases：解压，选中解压后的文件夹
-- 插件已被添加到 Chrome 浏览器中，在右上角插件栏区域中点击本插件即可运行
+> 以 Chromium 内核的其他浏览器（如 Edge Beta、360极速浏览器等）应该也可以通过 crx 的方式进行安装。
 
-![使用步骤图例.jpg](https://i.loli.net/2020/09/14/gGxFHdu8oZjPDKa.jpg)
+### Firefox 浏览器
 
-### Firefox
+两种方式：
 
-- 从 [Releases](https://github.com/ceynri/szu-network-connecter/releases) 选择 xpi 后缀的 Firefox 插件进行下载
-- 在 Firefox 浏览器 Ctrl+Shift+A 打开附加组件管理器
-- 点击齿轮⚙图标，选择“从文件安装附加组件...”，找到下载的 xpi 文件即可
+1. 直接通过 [Firefox ADD-ONS 商店](https://addons.mozilla.org/zh-CN/firefox/addon/深大校园网络登录/)获取安装
+2. [Releases](https://github.com/ceynri/szu-network-connecter/releases) 选择 xpi 后缀的 Firefox 插件进行下载
+   - 在 Firefox 浏览器 Ctrl+Shift+A 打开附加组件管理器
+   - 将下载的 xpi 文件拖入浏览器即可
 
 <br>
 
@@ -82,6 +80,6 @@
 
 > [后记](./record.md)
 >
-> [隐私权政策](./privacy-policy.md)
+> [隐私权政策](./privacy-policy.md)（为了上架 Chrome 商店而随便起了一份）
 
 <br>
