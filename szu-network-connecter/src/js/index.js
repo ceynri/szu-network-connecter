@@ -19,7 +19,7 @@ const show = (
   }, delay);
   return true;
 };
-  
+
 /**
  * 为了让display none兼容transition opacity渐变的函数
  */
@@ -73,9 +73,9 @@ if (!cardId && !password) {
   const stage1 = document.querySelector('.stage-1');
   const nextButton = stage1.querySelector('.next-button');
   const fillButton = stage1.querySelector('.fill-button');
-  
+
   show(stage1);
-  
+
   fillButton.addEventListener('click', () => {
     // next-button动画
     nextButton.style.width = '800px';
