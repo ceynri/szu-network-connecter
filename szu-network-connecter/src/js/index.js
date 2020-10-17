@@ -25,7 +25,6 @@ const buttons = [saveButton, savedButton, loginButton, loadingButton, loginedBut
 let cardId = localStorage.getItem('cid');
 let password = localStorage.getItem('password');
 
-// if (true) {
 if (!cardId && !password) {
   // 第一次使用插件，需要展示登录引导页
   const stage1 = document.querySelector('.stage-1');
@@ -52,17 +51,6 @@ if (!cardId && !password) {
   cidInput.value = cardId;
   pwInput.value = password;
 }
-
-/**
- * 检查到用户输入非法时，给input添加warning类
- */
-const warn = (elem, duration = 1000) => {
-  if (!elem) return;
-  elem.classList.add('warning');
-  setTimeout(() => {
-    elem.classList.remove('warning');
-  }, duration);
-};
 
 // 点击保存按钮
 saveButton.addEventListener('click', () => {
@@ -108,24 +96,20 @@ saveButton.addEventListener('click', () => {
   });
 });
 
-let hadGotCallback = false;
-
 /**
  * 接受请求的返回信息，进行相关输出
  */
-const connectedCallback = (isSuccess, msg) => {
-  // 不论是连接wifi还是网线，期望的连接模式应该会更先回调，而另外一种模式会超时后才触发回调，会慢一点
+const showResult = (isSuccess, msg) => {
   if (isSuccess) {
     hide(loadingButton, { delay: 300 });
     show(loginedButton);
-    if (msg) tips.innerText = msg;
-    hadGotCallback = true;
-  } else if (msg) {
+  } else {
     show(errorButton);
     hide(errorButton, { delay: 2300 });
     show(retryButton, { delay: 2000 });
+  }
+  if (msg) {
     tips.innerText = msg;
-    hadGotCallback = true;
   }
 };
 
@@ -136,14 +120,30 @@ const connectedCallback = (isSuccess, msg) => {
     // 变为loading状态
     hide(button, { delay: 300 });
     show(loadingButton);
+    tips.innerText = '';
+
+    // 超时处理
+    const timeoutTimer = new Promise((resolve, reject) => {
+      setTimeout(() => {
+        reject('登录超时');
+      }, 5000);
+    });
+
     // 发送登录请求
-    connectTo('nth', connectedCallback);
-    connectTo('wifi', connectedCallback);
-    setTimeout(() => {
-      if (!hadGotCallback) {
+    Promise.race([
+      login('nth'),
+      login('wifi'),
+      timeoutTimer,
+    ])
+      .then((res) => {
+        // 期望的连接模式会更先返回结果，未连接的模式会延迟返回，故被淘汰
+        showResult(res.type, res.msg);
+      })
+      .catch((e) => {
+        console.warn(e);
+        tips.innerText = e;
         hide(loadingButton, { delay: 300 });
         show(retryButton);
-      }
-    }, 5000);
+      })
   });
 })
