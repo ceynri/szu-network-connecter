@@ -38,12 +38,11 @@
 
 ### Firefox 浏览器
 
-两种方式：
+Firefox Addons 商店不允许上架受限受众的插件，故只好通过单独下载的形式安装：
 
-1. 直接通过 [Firefox ADD-ONS 商店](https://addons.mozilla.org/zh-CN/firefox/addon/深大校园网络登录/)获取安装
-2. [Releases](https://github.com/ceynri/szu-network-connecter/releases) 选择 xpi 后缀的 Firefox 插件进行下载
-   - 在 Firefox 浏览器 Ctrl+Shift+A 打开附加组件管理器
-   - 将下载的 xpi 文件拖入浏览器即可
+- [Releases](https://github.com/ceynri/szu-network-connecter/releases) 选择 xpi 后缀的 Firefox 插件进行下载
+- 在 Firefox 浏览器 Ctrl+Shift+A 打开附加组件管理器
+- 将下载的 xpi 文件拖入浏览器即可
 
 <br>
 
