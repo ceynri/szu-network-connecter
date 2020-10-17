@@ -1,47 +1,5 @@
-'use strict';
-
-/**
- * 为了让display none兼容transition opacity渐变的函数
- */
-const show = (
-  elem,
-  {
-    delay = 0,
-    opacity = 1,
-  } = {}
-) => {
-  if (!elem) {
-    return false;
-  }
-  elem.classList.remove('none');
-  setTimeout(() => {
-    elem.style.opacity = opacity;
-  }, delay);
-  return true;
-};
-
-/**
- * 为了让display none兼容transition opacity渐变的函数
- */
-const hide = (
-  elem,
-  {
-    duration = 300,
-    delay = 0,
-  } = {}
-) => {
-  if (!elem || elem.classList.contains('none')) {
-    return false;
-  }
-  setTimeout(() => {
-    // TODO: 渐变时长放在js里控制更优雅
-    elem.style.opacity = 0;
-    setTimeout(() => {
-      elem.classList.add('none');
-    }, duration);
-  }, delay);
-  return true;
-};
+import { login } from './login-post.js';
+import { show, hide, warn } from './animation.js';
 
 const securityText = '*账号信息仅保存于本地，以保证隐私安全';
 
