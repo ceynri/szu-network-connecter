@@ -85,8 +85,8 @@ Firefox Addons 商店不允许上架受限受众的插件，故只好通过单�
 
 ## 其他
 
-> [后记](./record.md)
->
-> [隐私权政策](./privacy-policy.md)（为了上架 Chrome 商店而随便起了一份）
+> - [命令行 curl 版本（issues#1）](https://github.com/ceynri/szu-network-connecter/issues/1)
+> - [后记](./record.md)
+> - [隐私权政策](./privacy-policy.md)（为了上架 Chrome 商店而随便起了一份）
 
 <br>
