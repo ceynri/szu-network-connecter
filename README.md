@@ -30,9 +30,7 @@
 两种途径：
 
 1. 直接通过 [Chrome 商店](https://chrome.google.com/webstore/detail/深大校园网络登录/mmeaolnimopgipjfbgobdlgkojojonop/)进行安装
-2. 通过 [Releases](https://github.com/ceynri/szu-network-connecter/releases) 下载对应的 **crx** 文件
-  - 然后打开 Chrome 浏览器的扩展程序界面
-  - 将 crx 文件拖入浏览器窗口即可
+2. 通过 [Releases](https://github.com/ceynri/szu-network-connecter/releases) 下载对应的 **crx** 文件，然后打开 Chrome 浏览器的扩展程序界面，将 crx 文件拖入浏览器窗口即可
 
 > 以 Chromium 内核的其他浏览器（如 Edge Beta、360极速浏览器等）应该也可以通过 crx 的方式进行安装。
 
