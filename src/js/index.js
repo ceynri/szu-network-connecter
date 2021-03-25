@@ -1,7 +1,10 @@
 import { login } from './login-post.js';
 import { show, hide, warn } from './animation.js';
 
-const securityText = '*账号信息仅保存于本地，以保证隐私安全';
+import './encrypt.js'
+encryptedLocalStorage = window.encryptedLocalStorage;
+
+const securityText = '*账号信息仅加密保存于本地，以保证隐私安全';
 
 // 一些用到的DOM元素
 
@@ -22,8 +25,10 @@ const errorButton = stage2.querySelector('.error-button');
 const buttons = [saveButton, savedButton, loginButton, loadingButton, loginedButton, retryButton, errorButton];
 
 // 卡号密码
-let cardId = localStorage.getItem('cid');
-let password = localStorage.getItem('password');
+let cardId = encryptedLocalStorage.getCardId();
+let password = encryptedLocalStorage.getPassword();
+// let cardId = localStorage.getItem('cid');
+// let password = localStorage.getItem('password');
 
 if (!cardId && !password) {
   // 第一次使用插件，需要展示登录引导页
@@ -71,9 +76,12 @@ saveButton.addEventListener('click', () => {
     show(errorButton);
     return;
   }
+
   // 保存至localStroage
-  localStorage.setItem('cid', cardId);
-  localStorage.setItem('password', password);
+  encryptedLocalStorage.saveInfo(cardId, password);
+  // localStorage.setItem('cid', cardId);
+  // localStorage.setItem('password', password);
+
   // 切换按钮状态
   hide(saveButton, { delay: 300 });
   tips.innerText = '';

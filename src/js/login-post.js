@@ -1,4 +1,7 @@
-﻿const urls = {
+﻿import './encrypt.js'
+encryptedLocalStorage = window.encryptedLocalStorage;
+
+const urls = {
   wifi: 'https://drcom.szu.edu.cn/a70.htm', // SZU_WLAN
   nth: 'http://172.30.255.2/0.htm', // 校园网有线连接 || SZU_CTC&CMCC
 }
@@ -31,8 +34,10 @@ export function login(type) {
 
   // 请求体
   const postBody = serialize({
-    DDDDD: localStorage.getItem('cid'),
-    upass: localStorage.getItem('password'),
+    // DDDDD: localStorage.getItem('cid'),
+    // upass: localStorage.getItem('password'),
+    DDDDD: encryptedLocalStorage.getCardId(),
+    upass: encryptedLocalStorage.getPassword(),
     '0MKKey': keys[type],
     // v6ip: '',
   });
