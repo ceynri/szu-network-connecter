@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="https://i.loli.net/2020/09/19/W5ojBY1p8MmOG7X.png" alt=""/>
+  <img src="https://static.ceynri.cn/W5ojBY1p8MmOG7X.png" alt=""/>
   <h1>深大校园网络一键登录认证 - 浏览器插件</h1>
 </div>
 
@@ -48,19 +48,19 @@ Firefox Addons 商店不允许上架受限受众的插件，故只好通过单�
 
 1. 点击“去填写”，输入你的**卡号**（不是学号）和密码并点击保存按钮
 
-    ![launch screen.png](https://i.loli.net/2020/10/12/cg26MhuBJmSakCQ.png)
+    ![launch screen.png](https://static.ceynri.cn/cg26MhuBJmSakCQ.png)
 
-    ![input.jpg](https://i.loli.net/2020/09/14/CTSyHFpQDWXd72U.jpg)
+    ![input.jpg](https://static.ceynri.cn/CTSyHFpQDWXd72U.jpg)
 
 2. 保存成功后，点击登录即可
 
-    ![login.jpg](https://i.loli.net/2020/09/14/vFq1Qu7Dn8UCVrb.jpg)
+    ![login.jpg](https://static.ceynri.cn/vFq1Qu7Dn8UCVrb.jpg)
 
-    ![logined.jpg](https://i.loli.net/2020/09/14/KBgxod5qu3WlJfN.jpg)
+    ![logined.jpg](https://static.ceynri.cn/KBgxod5qu3WlJfN.jpg)
 
 3. 如果出现报错或登录超时，请先检查个人信息、网络等设置是否有问题。如无法解决可以提 issue 并提供相关行为与环境信息
 
-    ![error.jpg](https://i.loli.net/2020/09/14/RuWUZjokFNHPt2Y.jpg)
+    ![error.jpg](https://static.ceynri.cn/RuWUZjokFNHPt2Y.jpg)
 
 <br>
 
