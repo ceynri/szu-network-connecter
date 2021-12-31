@@ -1,4 +1,4 @@
-import { login } from './login-post.js';
+import { login, newLogin } from './login-post.js';
 import { show, hide, warn } from './animation.js';
 
 const securityText = '*账号信息仅保存于本地，以保证隐私安全';
@@ -133,6 +133,7 @@ const showResult = (isSuccess, msg) => {
     Promise.race([
       login('nth'),
       login('wifi'),
+      newLogin(),
       timeoutTimer,
     ])
       .then((res) => {
