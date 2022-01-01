@@ -90,7 +90,6 @@ export function login(type) {
       }
     };
   });
-
   // 发送请求
   request.send(postBody);
 
@@ -106,8 +105,24 @@ export function newLogin() {
   const cid = localStorage.getItem('cid');
   const password = localStorage.getItem('password');
 
-  // url
-  const url = `http://172.30.255.42:801/eportal/portal/login?callback=dr1003&login_method=1&user_account=%2C0%2C${cid}&user_password=${password}&wlan_user_ip=&wlan_user_ipv6=&wlan_user_mac=000000000000&wlan_ac_ip=&wlan_ac_name=&jsVersion=4.1.3&terminal_type=1&lang=zh-cn&v=10353&lang=zh`;
+  // 构造url
+  const query = serialize({
+    callback: 'dr1003',
+    login_method: 1,
+    user_account: `%2C0%2C${cid}`,
+    user_password: password,
+    wlan_user_ip: '',
+    wlan_user_ipv6: '',
+    wlan_user_mac: '000000000000',
+    wlan_ac_ip: '',
+    wlan_ac_name: '',
+    jsVersion: '4.1.3',
+    terminal_type: 1,
+    lang: 'zh-cn',
+    v: 10353,
+    lang: 'zh',
+  });
+  const url = `http://172.30.255.42:801/eportal/portal/login?${query}`;
   request.open('GET', url, true);
 
   // 根据连接情况返回结果
@@ -137,20 +152,20 @@ export function newLogin() {
         // 以及后面的");"两个字符，得到完整JSON字符串
         const responseText = request.responseText.substring(7, request.responseText.length - 2);
 
-        // 尝试解析JSON，并记录是否成功
-        let isInfoResult = false;
-        let isSucceedResult = false;
-        let responseJson = '';
+        // 尝试解析JSON
+        let responseJson = {};
         try {
           responseJson = JSON.parse(responseText);
-          isInfoResult = true;
-          isSucceedResult = (responseJson["result"] === 1);
         } catch (e) {
-          isInfoResult = false;
-          isSucceedResult = false;
           console.error(e);
+          resolve({
+            type: false,
+            msg: `😥登陆失败：${request.responseText}`
+          });
         }
 
+        // 成功
+        const isSucceedResult = (responseJson.result === 1);
         if (isSucceedResult) {
           resolve({
             type: true,
@@ -158,25 +173,27 @@ export function newLogin() {
           });
         }
 
-        if (isInfoResult) {
-          // "IP已经在线"算作登录成功
-          if (responseJson["ret_code"] === 2) {
-            resolve({
-              type: true,
-              msg: `登录成功😊：${responseJson["msg"]}` // 顺便显示一下登录的IP
-            });
-          }
-
-          // 返回失败结果
+        // "IP已经在线"算作登录成功
+        const isAlreadyOnline = (responseJson.ret_code === 2);
+        if (isAlreadyOnline) {
           resolve({
-            type: false,
-            msg: `😥登陆失败：${responseJson["msg"]}`
+            type: true,
+            msg: `登录成功😊：${responseJson.msg}` // 顺便显示一下登录的IP
           });
         }
+
+        // 失败
+        let msg = responseJson.msg;
+        // 错误情况简单翻译
+        if (msg === 'ldap auth error') msg = `账号或密码错误（${msg}）`
+        if (msg === 'error hid') msg = `登录行为异常，请过几分钟后再试（${msg}）`
+        resolve({
+          type: false,
+          msg: `😥登陆失败：${msg}`
+        });
       }
     };
   });
-
   // 发送请求
   request.send();
 
