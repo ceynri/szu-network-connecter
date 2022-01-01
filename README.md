@@ -20,7 +20,7 @@
 
 ## 登录原理
 
-- 有线连接对应的登录网页网址为 `http://172.30.255.2/0.htm`
+- 有线连接对应的登录网页网址为 `http://172.30.255.42:801/`（曾经为`http://172.30.255.2/0.htm`）
 - WIFI 连接对应的登录网页网址为 `https://drcom.szu.edu.cn/a70.htm`
 - 网页的登录行为即发送带有卡号密码的 post 请求
 - 插件只需帮忙记忆用户的卡号与密码（使用 `localStorage`），模拟请求并处理返回结果即可
@@ -36,7 +36,7 @@
 1. 直接通过 [Chrome 商店](https://chrome.google.com/webstore/detail/深大校园网络登录/mmeaolnimopgipjfbgobdlgkojojonop/)进行安装
 2. 或者通过 [Releases](https://github.com/ceynri/szu-network-connecter/releases) 下载对应的 **crx** 文件，然后打开 Chrome 浏览器的扩展程序界面，将 crx 文件拖入浏览器窗口即可
 
-> 以 Chromium 内核的其他浏览器（如 Edge Beta、360极速浏览器等）应该也可以通过 crx 的方式进行安装。
+> 以 Chromium 内核的其他浏览器（如 Edge、360极速浏览器等）应该也可以通过 crx 的方式进行安装。
 
 ### Firefox 浏览器
 
