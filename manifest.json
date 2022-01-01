@@ -1,7 +1,7 @@
 {
 	"manifest_version": 2,
 	"name": "校园网一键登录认证",
-	"version": "1.3.0",
+	"version": "1.4.0",
 	"description": "针对深圳大学校园网有线连接与WIFI连接复杂的登录认证方式，给出一键快速登录解决方案的浏览器扩展插件",
 	"author": "ceynri",
 	"homepage_url": "https://github.com/ceynri/szu-network-connecter",
