@@ -131,7 +131,7 @@ const showResult = (isSuccess, msg) => {
 
     // 发送登录请求
     Promise.race([
-      login('nth'),
+      // login('nth'),
       login('wifi'),
       newLogin(),
       timeoutTimer,
