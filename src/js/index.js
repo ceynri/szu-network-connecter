@@ -125,7 +125,7 @@ const showResult = (isSuccess, msg) => {
     // 超时处理
     const timeoutTimer = new Promise((resolve, reject) => {
       setTimeout(() => {
-        reject('登录超时');
+        reject('😥登录超时');
       }, 5000);
     });
 
