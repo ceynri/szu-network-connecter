@@ -17,6 +17,7 @@
 	},
 	"permissions": [
 		"https://drcom.szu.edu.cn/a70.htm",
-		"http://172.30.255.2/0.htm"
+		"http://172.30.255.2/0.htm",
+		"http://172.30.255.42:801/"
 	]
 }
