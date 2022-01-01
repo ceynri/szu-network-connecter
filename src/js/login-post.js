@@ -9,13 +9,11 @@ const keys = {
 
 // 对象转键值对字符串
 function serialize(obj) {
-  const strArr = [];
-  for (const key in obj) {
-    if (obj.hasOwnProperty(key)) {
-      strArr.push(`${key}=${obj[key]}`);
-    }
+  const keyValues = [];
+  for (const [key, value] of Object.entries(obj)) {
+    keyValues.push(`${key}=${value}`);
   }
-  return strArr.join('&');
+  return keyValues.join('&');
 }
 
 export function login(type) {
@@ -42,52 +40,58 @@ export function login(type) {
     request.onreadystatechange = () => {
       if (request.status !== 200) {
         setTimeout(() => {
+          const msg = JSON.stringify({
+            status: request.status,
+            readyState: request.readyState,
+          });
           resolve({
             type: false,
-            msg: '连接失败，请检查网络连接情况',
-          })
+            msg: `连接异常，请检查网络连接情况（${msg}）`,
+          });
         }, 3000);
+        return;
       }
-      if (
-        request.readyState === 4 &&
-        request.status === 200
-      ) {
-        const response = request.responseText
-        const msga = /msga='(.*)'/.exec(response);
-        let msg = msga && msga[1];
 
-        const isInfoResult = response.includes('信息页') || response.includes('信息返回窗')
-        const isSucceedResult = response.includes('认证成功页') || response.includes('登录成功窗')
-
-        if (isSucceedResult) {
-          resolve({
-            type: true,
-            msg: '登录成功😊'
-          });
-        }
-
-        if (isInfoResult) {
-          // nth的登录成功
-          if (!msg) {
-            resolve({
-              type: true,
-              msg: '登录成功😊'
-            });
-          }
-          // 错误情况简单翻译
-          if (msg === 'ldap auth error') {
-            msg = `账号或密码错误（${msg}）`
-          }
-          if (msg === 'error hid') {
-            msg = `登录行为异常，请过几分钟后再试（${msg}）`
-          }
-          // 返回失败结果
-          resolve({
-            type: false,
-            msg: `😥登陆失败：${msg}`
-          });
-        }
+      if (request.readyState !== 4) {
+        return;
       }
+
+      const response = request.responseText;
+      const msga = /msga='(.*)'/.exec(response);
+      let msg = msga && msga[1];
+
+      const isSucceedResult = response.includes('认证成功页') || response.includes('登录成功窗');
+      const isInfoResult = response.includes('信息页') || response.includes('信息返回窗');
+
+      if (isSucceedResult) {
+        resolve({
+          type: true,
+          msg: '登录成功😊',
+        });
+        return;
+      }
+
+      if (isInfoResult && !msg) {
+        // nth的登录成功没有msg
+        resolve({
+          type: true,
+          msg: '登录成功😊',
+        });
+        return;
+      }
+
+      // 错误情况简单翻译
+      if (msg === 'ldap auth error') {
+        msg = `账号或密码错误（${msg}）`;
+      }
+      if (msg === 'error hid') {
+        msg = `登录行为异常，请过几分钟后再试（${msg}）`;
+      }
+      // 返回失败结果
+      resolve({
+        type: false,
+        msg: `😥登录失败${msg ? '：' + msg : ''}`,
+      });
     };
   });
   // 发送请求
@@ -145,7 +149,7 @@ export function newLogin() {
          * dr1003({\"result\":1,\"msg\":\"Portal协议认证成功！\"});
          * dr1003({\"result\":0,\"msg\":\"账号不存在\",\"ret_code\":1});
          * dr1003({\"result\":0,\"msg\":\"IP: 172.30.237.57 已经在线！\",\"ret_code\":2});
-         * 这里dr1003来自于GET请求中的callback参数
+         * 该请求为jsonp请求，这里dr1003来自于GET请求中的callback参数
          */
 
         // 切除前面的"dr1003("一共7个字符
@@ -160,7 +164,7 @@ export function newLogin() {
           console.error(e);
           resolve({
             type: false,
-            msg: `😥登陆失败：${request.responseText}`
+            msg: `😥登录失败：${request.responseText}`
           });
         }
 
@@ -185,11 +189,11 @@ export function newLogin() {
         // 失败
         let msg = responseJson.msg;
         // 错误情况简单翻译
-        if (msg === 'ldap auth error') msg = `账号或密码错误（${msg}）`
-        if (msg === 'error hid') msg = `登录行为异常，请过几分钟后再试（${msg}）`
+        if (msg === 'ldap auth error') msg = `账号或密码错误（${msg}）`;
+        if (msg === 'error hid') msg = `登录行为异常，请过几分钟后再试（${msg}）`;
         resolve({
           type: false,
-          msg: `😥登陆失败：${msg}`
+          msg: `😥登录失败：${msg}`
         });
       }
     };
