@@ -96,7 +96,7 @@ html {
   background: var(--color2);
   color: #130f40;
 
-  transition: all 1s cubic-bezier(0.4, -0.7, 0.4, 1.0);
+  transition: all 1s cubic-bezier(0.4, -0.7, 0.4, 1);
   /* transition: all 1s; */
 }
 .stage-1 .next-button .icon-next {

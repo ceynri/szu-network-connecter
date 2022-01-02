@@ -1,97 +1,106 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="utf-8" />
+    <title>深大校园网自动登录插件</title>
+    <link rel="stylesheet" href="./src/css/reset.css" />
+    <link rel="stylesheet" href="./src/css/style.css" />
+    <link
+      rel="stylesheet"
+      href="./assets/icon/font_2063650_d2ykk6dzj4v/iconfont.css"
+    />
+    <script src="./assets/js/promise-ployfill.js"></script>
+  </head>
 
-<head>
-	<meta charset="utf-8" />
-	<title>深大校园网自动登录插件</title>
-	<link rel="stylesheet" href="./src/css/reset.css" />
-	<link rel="stylesheet" href="./src/css/style.css" />
-	<link rel="stylesheet" href="./assets/icon/font_2063650_d2ykk6dzj4v/iconfont.css">
-	<script src="./assets/js/promise-ployfill.js"></script>
-</head>
+  <body>
+    <div id="app">
+      <div class="stage-1 none">
+        <div class="content">
+          <h1 class="title">首次使用需记录账号信息</h1>
+          <button class="button fill-button clickable">去填写</button>
+        </div>
+        <button class="button next-button">
+          <i class="iconfont icon-next"></i>
+        </button>
+      </div>
+      <div class="stage-2 none">
+        <div class="form">
+          <div class="inputs">
+            <input
+              type="text"
+              class="input card-id"
+              placeholder="卡号"
+              required
+            />
+            <input
+              type="password"
+              class="input password"
+              placeholder="密码"
+              required
+            />
+          </div>
+          <div class="button-wrapper">
+            <!-- 保存 -->
+            <button class="button save-button clickable none">
+              <i class="iconfont icon-baocun"></i>
+            </button>
 
-<body>
-	<div id="app">
-		<div class="stage-1 none">
-			<div class="content">
-				<h1 class="title">
-					首次使用需记录账号信息
-				</h1>
-				<button class="button fill-button clickable">
-					去填写
-				</button>
-			</div>
-			<button class="button next-button">
-				<i class="iconfont icon-next"></i>
-			</button>
-		</div>
-		<div class="stage-2 none">
-			<div class="form">
-				<div class="inputs">
-					<input
-						type="text"
-						class="input card-id"
-						placeholder="卡号"
-						required
-					/>
-					<input
-						type="password"
-						class="input password"
-						placeholder="密码"
-						required
-					/>
-				</div>
-				<div class="button-wrapper">
-					<!-- 保存 -->
-					<button class="button save-button clickable none">
-						<i class="iconfont icon-baocun"></i>
-					</button>
+            <!-- 保存成功 -->
+            <button class="button saved-button none">
+              <svg
+                class="checkmark icon-saved"
+                width="24px"
+                height="24px"
+                stroke="white"
+                fill="none"
+              >
+                <polyline points="2,14 10,20 22,7"></polyline>
+              </svg>
+            </button>
 
-					<!-- 保存成功 -->
-					<button class="button saved-button none">
-						<svg class="checkmark icon-saved" width="24px" height="24px" stroke="white" fill="none">
-							<polyline points="2,14 10,20 22,7"></polyline>
-						</svg>
-					</button>
+            <!-- 登录 -->
+            <button class="button login-button clickable none">
+              <div class="login">登录</div>
+            </button>
 
-					<!-- 登录 -->
-					<button class="button login-button clickable none">
-						<div class="login">登录</div>
-					</button>
+            <!-- 登录中 -->
+            <button class="button loading-button none">
+              <div class="loader">
+                <div class="point point1"></div>
+                <div class="point point2"></div>
+                <div class="point point3"></div>
+              </div>
+            </button>
 
-					<!-- 登录中 -->
-					<button class="button loading-button none">
-						<div class="loader">
-							<div class="point point1"></div>
-							<div class="point point2"></div>
-							<div class="point point3"></div>
-						</div>
-					</button>
+            <!-- 登录成功 -->
+            <button class="button logined-button none">
+              <svg
+                class="checkmark icon-logined"
+                width="24px"
+                height="24px"
+                stroke="white"
+                fill="none"
+              >
+                <polyline points="2,14 10,20 22,7"></polyline>
+              </svg>
+            </button>
 
-					<!-- 登录成功 -->
-					<button class="button logined-button none">
-						<svg class="checkmark icon-logined" width="24px" height="24px" stroke="white" fill="none">
-							<polyline points="2,14 10,20 22,7"></polyline>
-						</svg>
-					</button>
+            <!-- 重试 -->
+            <button class="button retry-button clickable none">
+              <i class="iconfont icon-zhongshi"></i>
+            </button>
 
-					<!-- 重试 -->
-					<button class="button retry-button clickable none">
-						<i class="iconfont icon-zhongshi"></i>
-					</button>
-
-					<!-- 错误 -->
-					<button class="button error-button none">
-						<i class="iconfont icon-cuowu"></i>
-					</button>
-				</div>
-			</div>
-			<div class="tips">
-				<!-- js intect -->
-			</div>
-		</div>
-	</div>
-	<script src="./src/js/index.js" type="module"></script>
-</body>
-
+            <!-- 错误 -->
+            <button class="button error-button none">
+              <i class="iconfont icon-cuowu"></i>
+            </button>
+          </div>
+        </div>
+        <div class="tips">
+          <!-- js intect -->
+        </div>
+      </div>
+    </div>
+    <script src="./src/js/index.js" type="module"></script>
+  </body>
 </html>
