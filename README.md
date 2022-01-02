@@ -9,7 +9,7 @@
 >
 > 项目支持 [Pull Requests](https://github.com/ceynri/szu-network-connecter/pulls)，本插件出现问题时如有同学愿意提供维护并做好自测，我可以帮忙提交商店。
 
-> 2021/12/31 校园网更新后宿舍区出现使用插件无法登录的情况，请更新插件至 1.4.0 以上
+> 2021/12/31 校园网更新后宿舍区出现使用插件无法登录的情况，请更新插件至 1.4.x 以上
 
 ## 基本特性
 
@@ -33,20 +33,21 @@
 
 ### Chrome / Edge 浏览器
 
-两种途径：
+### 方法一
 
-1. 直接通过 [Chrome 商店](https://chrome.google.com/webstore/detail/深大校园网络登录/mmeaolnimopgipjfbgobdlgkojojonop/)进行安装
-2. 或者通过 [Releases](https://github.com/ceynri/szu-network-connecter/releases) 下载对应的 **crx** 文件，然后打开 Chrome 浏览器的扩展程序界面，将 crx 文件拖入浏览器窗口即可
+通过 [Chrome 商店](https://chrome.google.com/webstore/detail/深大校园网络登录/mmeaolnimopgipjfbgobdlgkojojonop/)进行安装
 
-> 以 Chromium 内核的其他浏览器（如 Edge、360 极速浏览器等）应该也可以通过 crx 的方式进行安装。
+### 方法二
+
+在 [Releases](https://github.com/ceynri/szu-network-connecter/releases) 中下载 crx 文件，拖拽到扩展管理页面后会自动安装
 
 ### Firefox 浏览器
 
-本插件曾经上架过 Firefox Addons 商店，但由于其不允许上架受限受众的插件而被下架，故目前只好通过单独下载的形式安装：
+Firefox Addons 商店不允许上架受限受众的插件，故无法直接上架，需以 xpi 文件的方式进行分发。
 
-- [Releases](https://github.com/ceynri/szu-network-connecter/releases) 选择 xpi 后缀的 Firefox 插件进行下载
-- 在 Firefox 浏览器 Ctrl+Shift+A 打开附加组件管理器
-- 将下载的 xpi 文件拖入浏览器即可
+在 [Releases](https://github.com/ceynri/szu-network-connecter/releases) 中下载 xpi 文件，拖拽到扩展管理页面或选择从文件安装选项即可：
+
+![安装附加组件](https://cdn.jsdelivr.net/gh/ceynri/assets@main/images/16411066396531641106639642.png)
 
 <br>
 
