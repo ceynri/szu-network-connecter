@@ -1,13 +1,15 @@
 <div align="center">
-  <img src="https://static.ceynri.cn/W5ojBY1p8MmOG7X.png" alt=""/>
+  <img src="https://static.ceynri.cn/W5ojBY1p8MmOG7X.png" alt="logo"/>
   <h1>深大校园网络一键登录认证 - 浏览器插件</h1>
 </div>
 
 针对深圳大学校园网有线连接与 WIFI 连接复杂的登录认证方式，给出一键快速登录认证解决方案的浏览器扩展插件。支持 Chrome/Firefox 浏览器。
 
 > 作者（[@ceynri](https://github.com/ceynri)）目前已经毕业，在无校内网的条件下，本项目不再主动提供维护。但在校园网络提供商未对服务进行更改的情况下，本插件仍然保持可用。
-> 
+>
 > 项目支持 [Pull Requests](https://github.com/ceynri/szu-network-connecter/pulls)，本插件出现问题时如有同学愿意提供维护并做好自测，我可以帮忙提交商店。
+
+> 2021/12/31 校园网更新后宿舍区出现使用插件无法登录的情况，请更新插件至 1.4.0 以上
 
 ## 基本特性
 
@@ -36,7 +38,7 @@
 1. 直接通过 [Chrome 商店](https://chrome.google.com/webstore/detail/深大校园网络登录/mmeaolnimopgipjfbgobdlgkojojonop/)进行安装
 2. 或者通过 [Releases](https://github.com/ceynri/szu-network-connecter/releases) 下载对应的 **crx** 文件，然后打开 Chrome 浏览器的扩展程序界面，将 crx 文件拖入浏览器窗口即可
 
-> 以 Chromium 内核的其他浏览器（如 Edge、360极速浏览器等）应该也可以通过 crx 的方式进行安装。
+> 以 Chromium 内核的其他浏览器（如 Edge、360 极速浏览器等）应该也可以通过 crx 的方式进行安装。
 
 ### Firefox 浏览器
 
@@ -52,19 +54,19 @@
 
 1. 点击“去填写”，输入你的**卡号**（不是学号）和密码并点击保存按钮
 
-    ![launch screen.png](https://static.ceynri.cn/cg26MhuBJmSakCQ.png)
+   ![launch screen.png](https://cdn.jsdelivr.net/gh/ceynri/assets@main/images/16410912719601641091271957.png)
 
-    ![input.jpg](https://static.ceynri.cn/CTSyHFpQDWXd72U.jpg)
+   ![input.jpg](https://cdn.jsdelivr.net/gh/ceynri/assets@main/images/16410912931241641091293106.png)
 
 2. 保存成功后，点击登录即可
 
-    ![login.jpg](https://static.ceynri.cn/vFq1Qu7Dn8UCVrb.jpg)
+   ![login.jpg](https://cdn.jsdelivr.net/gh/ceynri/assets@main/images/16410913069971641091306996.png)
 
-    ![logined.jpg](https://static.ceynri.cn/KBgxod5qu3WlJfN.jpg)
+   ![logined.jpg](https://cdn.jsdelivr.net/gh/ceynri/assets@main/images/16410913198411641091319837.png)
 
 3. 如果出现报错或登录超时，请先检查个人信息、网络等设置是否有问题。如无法解决可以提 issue 并提供相关行为与环境信息
 
-    ![error.jpg](https://static.ceynri.cn/RuWUZjokFNHPt2Y.jpg)
+   ![error.jpg](https://cdn.jsdelivr.net/gh/ceynri/assets@main/images/16410913318281641091331823.png)
 
 <br>
 
@@ -77,7 +79,6 @@
 ## 其他
 
 > - [命令行 curl 版本（issues#1）](https://github.com/ceynri/szu-network-connecter/issues/1)
-> - [后记](./record.md)
 > - [隐私权政策](./privacy-policy.md)（为了上架 Chrome 商店而随便起了一份）
 
 <br>
