@@ -71,28 +71,30 @@ export function login(type) {
         return;
       }
 
-      if (isInfoResult && !msg) {
-        // nth的登录成功没有msg
-        resolve({
-          type: true,
-          msg: '登录成功😊',
-        });
-        return;
-      }
+      if (isInfoResult) {
+        if (!msg) {
+          // nth的登录成功没有msg
+          resolve({
+            type: true,
+            msg: '登录成功😊',
+          });
+          return;
+        }
 
-      // 错误情况简单翻译
-      if (msg === 'ldap auth error') {
-        msg = `账号或密码错误（${msg}）`;
+        // 错误情况简单翻译
+        if (msg === 'ldap auth error') {
+          msg = `账号或密码错误（${msg}）`;
+        }
+        if (msg === 'error hid') {
+          msg = `登录行为异常，请过几分钟后再试（${msg}）`;
+        }
+        // 返回失败结果
+        resolve({
+          type: false,
+          msg: `😥登录失败${msg ? '：' + msg : ''}`,
+        });
       }
-      if (msg === 'error hid') {
-        msg = `登录行为异常，请过几分钟后再试（${msg}）`;
-      }
-      // 返回失败结果
-      resolve({
-        type: false,
-        msg: `😥登录失败${msg ? '：' + msg : ''}`,
-      });
-    };
+    }
   });
   // 发送请求
   request.send(postBody);
